@@ -6,7 +6,7 @@ import './Footer.css';
 const Footer = () => {
     return (
         <div>
-            <footer className="footer-distributed text-white mt-5">
+            <footer className="footer-distributed text-white ">
 
                 <div className="footer-left">
 
