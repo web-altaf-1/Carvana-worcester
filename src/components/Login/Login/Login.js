@@ -1,15 +1,45 @@
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import auth from '../../../firebase.init';
+import Loading from '../../Shared/Loading/Loading';
 import './Login.css';
 
 const Login = () => {
+
+
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    let errorElement ;
+
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+      ] = useSignInWithEmailAndPassword(auth);
+
+    let from = location.state?.from?.pathname || "/";
+
+    if(loading){
+        return <Loading></Loading>
+    }
+    if (user) {
+        navigate(from, { replace: true });
+    }
+
+    if (error) {
+        errorElement = <p className='text-danger'>Error: {error.message}</p> 
+    };
     
     const handleSubmit = event =>{
         event.preventDefault();
         const email = event.target.email.value;
         const password = event.target.password.value;
-        console.log(email,password);
+        signInWithEmailAndPassword(email, password);
+
     }
 
 
@@ -29,8 +59,9 @@ const Login = () => {
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="I agree with terms And conditions" required />
                 </Form.Group>
+                {error ? alert(error.message) : <></>}
                 <Button  variant="primary" type="submit">
-                    Login
+                    Login Login
                 </Button>
                 <br />
                 <Form.Label className='mt-2'>New to Maya Warehouse System ??
