@@ -61,7 +61,7 @@ const Login = () => {
                 </Form.Group>
                 {error ? alert(error.message) : <></>}
                 <Button  variant="primary" type="submit">
-                    Login Login
+                    Login
                 </Button>
                 <br />
                 <Form.Label className='mt-2'>New to Maya Warehouse System ??
