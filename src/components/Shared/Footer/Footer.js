@@ -10,7 +10,7 @@ const Footer = () => {
 
                 <div className="footer-left">
 
-                    <h3>Maya Warehouse <span>System</span></h3>
+                    <h3>Carvana <span>Worcester</span></h3>
 
                     <p className="footer-links">
                         <Nav.Link style={{ padding: '0' }} as={Link} eventKey={1} to="/">Home</Nav.Link>
@@ -22,7 +22,7 @@ const Footer = () => {
                         <Nav.Link style={{ padding: '0' }} as={Link} eventKey={5} to="/contact">Contact</Nav.Link>
                     </p>
 
-                    <p className="footer-company-name text-white"> Maya Warehouse System © {new Date().getFullYear()}</p>
+                    <p className="footer-company-name text-white"> Carvana Worcester © {new Date().getFullYear()}</p>
                 </div>
 
                 <div className="footer-center">
