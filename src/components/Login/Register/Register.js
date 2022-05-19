@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../../firebase.init';
 
 const Register = () => {
@@ -24,6 +25,9 @@ const Register = () => {
         console.log(name,email,password);
         
         createUserWithEmailAndPassword(email, password);
+
+        alert('User created')
+        toast('Sent email');
 
     }
     return (
@@ -56,6 +60,7 @@ const Register = () => {
                 <Link  style={{ marginLeft: '5px' }} to='/login'>Please Login</Link>
                 <br />
             </Form>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };
