@@ -5,6 +5,7 @@ import './Items.css';
 
 const Items = () => {
     const [products, setProducts] = useState([]);
+    
     useEffect(() => {
         fetch('http://localhost:5000/items')
             .then(res => res.json())
@@ -15,10 +16,11 @@ const Items = () => {
             <div className="car-heading">
                 <h1 className='text-center mt-5 mb-5'>Inventory Items </h1>
             </div>
-            <div className="items ">
+            <div className="itemss ">
                 {
-                    products.slice(0, 6).map(product => <Cars
+                    products.slice(0, 6).map(product => <Cars key={product._id}
                         product={product}
+                        
                     ></Cars>)
                 }
             </div>

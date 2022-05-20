@@ -7,19 +7,34 @@ import auth from '../../firebase.init';
 
 const AddItems = () => {
     const [user, loading, error] = useAuthState(auth);
-    
 
-    const handleAddItems = event =>{
+
+    const handleAddItems = event => {
         event.preventDefault();
         const name = event.target.name.value;
         const price = event.target.price.value;
         const quantity = event.target.quantity.value;
         const details = event.target.details.value;
-        const url = event.target.url.value;
+        const img = event.target.url.value;
         const email = user.email;
-        console.log(name,price,quantity,details,url , email);
+        const newItem = {name,price ,quantity,details,img,email}
 
+        // send data to the server 
 
+        fetch('http://localhost:5000/addItems', {
+            method: 'POST', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newItem),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
 
         event.target.reset();
     }
@@ -35,7 +50,7 @@ const AddItems = () => {
                         name='name'
                         placeholder="Example : Toyota"
                         required
-                        
+
                     />
                 </Form.Group>
                 <Form.Group className="m-3">
@@ -45,7 +60,7 @@ const AddItems = () => {
                         name='price'
                         placeholder="Example : $ 10000"
                         required
-                        
+
                     />
                 </Form.Group>
                 <Form.Group className="m-3">
@@ -55,7 +70,7 @@ const AddItems = () => {
                         name='quantity'
                         placeholder="Example : 200"
                         required
-                        
+
                     />
                 </Form.Group>
                 <Form.Group className="m-3">
@@ -65,7 +80,7 @@ const AddItems = () => {
                         name='details'
                         placeholder="Details about car"
                         required
-                        
+
                     />
                 </Form.Group>
                 <Form.Group className="m-3">
@@ -75,7 +90,7 @@ const AddItems = () => {
                         name='url'
                         placeholder="https://example.com"
                         required
-                        
+
                     />
                 </Form.Group>
                 <Form.Group className="m-3">
@@ -83,7 +98,7 @@ const AddItems = () => {
                     <Form.Control
                         type="email"
                         required
-                    
+
                         value={user.email}
                         readOnly
                     />

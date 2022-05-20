@@ -9,7 +9,6 @@ import './Header.css';
 const Header = () => {
   const [user, loading, error] = useAuthState(auth);
 
-  console.log(user);
   const handleSignOut = () => {
 
     signOut(auth);
@@ -18,7 +17,7 @@ const Header = () => {
   return (
     <Navbar className='navbar-style' sticky='top' collapseOnSelect expand="lg" variant="dark">
       <Container>
-        <Navbar.Brand eventKey={1} as={Link} to="/"><h3>Carvana Worcester</h3> </Navbar.Brand>
+        <Navbar.Brand  as={Link} to="/"><h3>Carvana Worcester</h3> </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
@@ -27,19 +26,19 @@ const Header = () => {
           
           <Nav>
             {
-              user ? <Nav.Link className='text-white ' as={Link} eventKey={4} to="/inventory">Manage Items</Nav.Link> :
+              user ? <Nav.Link className='text-white ' as={Link} to="/inventory">Manage Items</Nav.Link> :
                 <></>
             }
           </Nav>
           <Nav>
             {
-              user ? <Nav.Link className='text-white ' as={Link} eventKey={4} to="/addItems">Add Items</Nav.Link> :
+              user ? <Nav.Link className='text-white ' as={Link} to="/addItems">Add Items</Nav.Link> :
                 <></>
             }
           </Nav>
           <Nav>
             {
-              user ? <Nav.Link className='text-white ' as={Link} eventKey={4} to="/myItems">My Items</Nav.Link> :
+              user ? <Nav.Link className='text-white ' as={Link} to="/myItems">My Items</Nav.Link> :
                 <></>
             }
           </Nav>
@@ -47,7 +46,7 @@ const Header = () => {
           <Nav>
 
             {
-              user ? <button className='btn btn-link text-white text-decoration-none' onClick={handleSignOut}>Log Out</button> : <Nav.Link className='text-white ' eventKey={6} as={Link} to="login">
+              user ? <button className='btn btn-link text-white text-decoration-none' onClick={handleSignOut}>Log Out</button> : <Nav.Link className='text-white ' as={Link} to="login">
                 Login
               </Nav.Link>
             }

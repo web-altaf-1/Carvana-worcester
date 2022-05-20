@@ -27,7 +27,7 @@ const Inventory = () => {
 
   return (
     <div className="manage-inventories">
-      <h1>Manage Inventories</h1>
+      <h1 className="text-center text-primary my-3">Manage Inventories</h1>
 
       <div className="table">
         <Table responsive>
