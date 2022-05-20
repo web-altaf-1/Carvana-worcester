@@ -1,0 +1,13 @@
+.add-item-btn{
+    padding: 6px 10px ;
+    font-weight: bold;
+    border-radius: 6px;
+    border: 1px solid rgb(18, 140, 255);
+    
+}
+.add-item-btn:hover{
+    background-color: rgb(18, 140, 255);
+    color: white;
+
+
+}

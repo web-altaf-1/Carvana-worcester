@@ -6,14 +6,24 @@ import { Link } from "react-router-dom";
 const Inventory = () => {
     const [products, setProducts] = useState([]);
 
+    const preloader = () =>{
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    }
+    
+
     useEffect(() => {
         fetch('http://localhost:5000/items')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, []);
 
-    
-
+    if(window.load){
+      return preloader();
+    }
 
   return (
     <div className="manage-inventories">
@@ -41,11 +51,11 @@ const Inventory = () => {
                 <td>{car.price}</td>
                 <td>{car.quantity}</td>
                 <td>
-                  <button
+                  <button 
                     // onClick={() => removeItem(car._id)}
                     className="remove"
                   >
-                    
+                    X
                   </button>
                 </td>
               </tr>
@@ -54,11 +64,12 @@ const Inventory = () => {
         </Table>
       </div>
       <div className="add-item">
-        <Link to={"/addInventoryItem"} className="link">
+        <Link to={"/addItems"} className="link">
           {" "}
           Add New Item +{" "}
         </Link>
       </div>
+     
     </div>
   );
 };
