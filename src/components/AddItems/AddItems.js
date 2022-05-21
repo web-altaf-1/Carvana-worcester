@@ -31,12 +31,14 @@ const AddItems = () => {
             .then(response => response.json())
             .then(data => {
                 console.log('Success:', data);
+                window.confirm('Are you sure add this item ?? ')
+                event.target.reset();
             })
             .catch((error) => {
                 console.error('Error:', error);
             });
 
-        event.target.reset();
+        
     }
 
     return (

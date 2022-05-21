@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 30px;
+    margin: 0px 50px;
 }
 
 /* make services responsive */

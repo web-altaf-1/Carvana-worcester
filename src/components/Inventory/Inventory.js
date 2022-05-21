@@ -25,6 +25,13 @@ const Inventory = () => {
       return preloader();
     }
 
+    const removeItem = (_id)=>{
+      const proceed = window.confirm('Are you sure want to delete ??')
+      if(proceed){
+        console.log('deleting user id',_id);
+      }
+    }
+
   return (
     <div className="manage-inventories">
       <h1 className="text-center text-primary my-3">Manage Inventories</h1>
@@ -52,7 +59,7 @@ const Inventory = () => {
                 <td>{car.quantity}</td>
                 <td>
                   <button 
-                    // onClick={() => removeItem(car._id)}
+                    onClick={() => removeItem(car._id)}
                     className="remove"
                   >
                     X
@@ -63,12 +70,13 @@ const Inventory = () => {
           </tbody>
         </Table>
       </div>
-      <div className="add-item">
-        <Link to={"/addItems"} className="link">
-          {" "}
-          Add New Item +{" "}
-        </Link>
-      </div>
+      <div className="manage-items d-flex">
+                <Link to='/addItems'>
+
+                    <button className='manage-items-btn '>Add Items +</button>
+                </Link>
+                {window.scroll(0,0)}
+            </div>
      
     </div>
   );
