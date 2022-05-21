@@ -29,7 +29,20 @@ const Inventory = () => {
       const proceed = window.confirm('Are you sure want to delete ??')
       if(proceed){
         console.log('deleting user id',_id);
+        const url = `http://localhost:5000/items/${_id}`;
+        fetch(url,{
+          method : 'DELETE'
+        })
+        .then(res => res.json())
+        .then(data => {
+          if(data.deletedCount > 0){
+            const remaining = products.filter(product => product._id !== _id);
+            alert('Item Deleted')
+            setProducts(remaining);
+          }
+        })
       }
+
     }
 
   return (
