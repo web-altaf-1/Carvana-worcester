@@ -7,8 +7,6 @@ import auth from '../../firebase.init';
 
 const AddItems = () => {
     const [user, loading, error] = useAuthState(auth);
-
-
     const handleAddItems = event => {
         event.preventDefault();
         const name = event.target.name.value;
@@ -33,6 +31,7 @@ const AddItems = () => {
                 console.log('Success:', data);
                 window.confirm('Are you sure add this item ?? ')
                 event.target.reset();
+                window.scroll(0,0)
             })
             .catch((error) => {
                 console.error('Error:', error);

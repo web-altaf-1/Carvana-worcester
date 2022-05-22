@@ -1,16 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import UseCars from '../../../hooks/UseCars';
 import Cars from '../Cars/Cars';
 import './Items.css';
 
 const Items = () => {
-    const [products, setProducts] = useState([]);
-    
-    useEffect(() => {
-        fetch('http://localhost:5000/items')
-            .then(res => res.json())
-            .then(data => setProducts(data))
-    }, [])
+    const [products,setProducts] = UseCars();
     return (
         <div className='mb-5'>
             <div className="car-heading">

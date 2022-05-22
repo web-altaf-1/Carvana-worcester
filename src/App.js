@@ -9,6 +9,7 @@ import RequireAuth from './components/Login/RequireAuth/RequireAuth';
 import Footer from './components/Shared/Footer/Footer';
 import Header from './components/Shared/Header/Header';
 import NotFound from './components/Shared/NotFound/NotFound';
+import UpdateCar from './components/UpdateCar/UpdateCar';
 
 function App() {
   return (
@@ -17,12 +18,24 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
-        <Route path='/inventory' element={<RequireAuth>
-          <Inventory></Inventory>
-        </RequireAuth>}></Route>
-        <Route path='/addItems' element={<RequireAuth>
-          <AddItems></AddItems>
-        </RequireAuth>}></Route>
+        <Route
+          path="/update/:id"
+          element={
+            <RequireAuth>
+              <UpdateCar></UpdateCar>
+            </RequireAuth>
+          }
+        ></Route>
+        <Route path='/inventory' element={
+          <RequireAuth>
+            <Inventory></Inventory>
+          </RequireAuth>
+        }></Route>
+        <Route path='/addItems' element={
+          <RequireAuth>
+            <AddItems></AddItems>
+          </RequireAuth>
+        }></Route>
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>

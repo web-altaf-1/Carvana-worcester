@@ -1,0 +1,17 @@
+.text-gray{
+    color: gray;
+}
+
+.restock-button{
+    background-color: #0f4645;
+    color: #fff;
+    padding: 6px 15px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: 1px solid #0f4645;
+}
+
+.restock-button:hover{
+    background-color: black;
+
+}

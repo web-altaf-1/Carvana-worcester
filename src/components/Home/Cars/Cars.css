@@ -1,0 +1,17 @@
+.product-price{
+    color: gray;
+}
+.update-button{
+    padding: 5px 14px;
+    border-radius: 10px;
+    background-color:  #0f4645;
+    color: white;
+    font-weight: bold;
+    border: 1px solid rgb(20, 129, 20) ;
+    display: flex;
+    margin: 10px auto;
+}
+
+.update-button:hover{
+    background-color: black;
+}

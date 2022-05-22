@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import './Inventory.css';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import UseCars from "../../hooks/UseCars";
 
 const Inventory = () => {
-    const [products, setProducts] = useState([]);
+  const navigate = useNavigate();
+
+  const [products,setProducts] = UseCars();
 
     const preloader = () =>{
       <div class="d-flex justify-content-center">
@@ -14,12 +17,6 @@ const Inventory = () => {
       </div>
     }
     
-
-    useEffect(() => {
-        fetch('http://localhost:5000/items')
-            .then(res => res.json())
-            .then(data => setProducts(data))
-    }, []);
 
     if(window.load){
       return preloader();
@@ -45,6 +42,10 @@ const Inventory = () => {
 
     }
 
+    const handleItemUpdate = (_id) =>{
+      navigate(`/update/${_id}`)
+  }
+
   return (
     <div className="manage-inventories">
       <h1 className="text-center text-primary my-3">Manage Inventories</h1>
@@ -57,6 +58,7 @@ const Inventory = () => {
               <th>Name</th>
               <th>Price</th>
               <th>Quantity</th>
+              <th>Remove</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -76,7 +78,11 @@ const Inventory = () => {
                     className="remove"
                   >
                     X
-                  </button>
+                  </button> 
+                  
+                </td>
+                <td>
+                <button onClick={()=> handleItemUpdate(car._id)}>Update</button>
                 </td>
               </tr>
             ))}
