@@ -9,6 +9,7 @@ const Inventory = () => {
 
   const [products,setProducts] = UseCars();
 
+  // website  preloader
     const preloader = () =>{
       <div class="d-flex justify-content-center">
         <div class="spinner-border" role="status">
@@ -21,6 +22,8 @@ const Inventory = () => {
     if(window.load){
       return preloader();
     }
+
+    // remove item from database 
 
     const removeItem = (_id)=>{
       const proceed = window.confirm('Are you sure want to delete ??')
@@ -41,6 +44,8 @@ const Inventory = () => {
       }
 
     }
+
+    // update item by id 
 
     const handleItemUpdate = (_id) =>{
       navigate(`/update/${_id}`)

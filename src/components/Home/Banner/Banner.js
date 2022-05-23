@@ -7,7 +7,7 @@ const Banner = () => {
         <div>
             <div className="banner">
                 <div className="image">
-                    <img src="https://i.ibb.co/b7XbjJR/maxresdefault.png" alt="" />
+                    <img src="https://i.ibb.co/z5h61J7/1a-bmw-wanchaishowroom-finedata-1.png" alt="" />
                 </div>
                 <div className="details">
                     <h1>The New Comfort Zone </h1>

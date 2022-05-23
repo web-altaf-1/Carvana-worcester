@@ -4,10 +4,11 @@ import Recommend from '../../Recommend/Recommend';
 import './Recommendation.css';
 
 const Recomendation = () => {
+    // custom hooks used for load data from database 
     const [recomendation,setRecommendation] = UseRecommendation();
     return (
         <div>
-            <h1 className=' text-center my-3'>Recommendation </h1>
+            <h1 className=' text-center my-5'>Recommendation </h1>
             <div className='recommendation'>
                 {
                     recomendation.map(r => <Recommend 

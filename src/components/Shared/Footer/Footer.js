@@ -15,11 +15,11 @@ const Footer = () => {
                     <p className="footer-links">
                         <Nav.Link style={{ padding: '0' }} as={Link} eventKey={1} to="/">Home</Nav.Link>
 
-                        <Nav.Link style={{ padding: '0' }} as={Link} eventKey={2} to="/services">Services</Nav.Link>
+                        <Nav.Link style={{ padding: '0' }} as={Link} eventKey={2} to="/inventory">Inventory</Nav.Link>
 
-                        <Nav.Link style={{ padding: '0' }} as={Link} eventKey={4} to="/about">About Us</Nav.Link>
+                        <Nav.Link style={{ padding: '0' }} as={Link} eventKey={4} to="/addItems">Add Items Us</Nav.Link>
 
-                        <Nav.Link style={{ padding: '0' }} as={Link} eventKey={5} to="/contact">Contact</Nav.Link>
+                        <Nav.Link style={{ padding: '0' }} as={Link} eventKey={5} to="/myItems">My Items</Nav.Link>
                     </p>
 
                     <p className="footer-company-name text-white"> Carvana Worcester © {new Date().getFullYear()}</p>
@@ -39,7 +39,7 @@ const Footer = () => {
 
                     <div>
                         <i className="fa fa-envelope"></i>
-                        <p><a className="text-white " href="mailto:support@company.com">support@support.com</a></p>
+                        <p><a className="text-white " href="mailto:support@company.com">support@carvana.com</a></p>
                     </div>
 
                 </div>

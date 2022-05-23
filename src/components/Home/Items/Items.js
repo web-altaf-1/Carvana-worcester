@@ -5,6 +5,7 @@ import Cars from '../Cars/Cars';
 import './Items.css';
 
 const Items = () => {
+    // custom hooks use for load data from database
     const [products,setProducts] = UseCars();
     return (
         <div className='mb-5'>

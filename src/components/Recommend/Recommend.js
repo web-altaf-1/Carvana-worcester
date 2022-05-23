@@ -8,9 +8,10 @@ const Recommend = (props) => {
         navigate(`/update/${_id}`)
     }
     return (
-        <div>
-            <img src={img} alt="" />
-            <h3>name : {name}</h3>
+        <div className='shadow-lg mx-3'>
+            <img className='img-fluid d-block m-auto' src={img} alt="" />
+            <h3 className='text-center my-2'>Name : {name}</h3>
+            <button className='btn btn-primary mx-auto d-flex my-3 w-auto'>Explore Offers</button>
         </div>
     );
 };

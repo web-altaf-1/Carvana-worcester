@@ -8,6 +8,7 @@ import auth from '../../../firebase.init';
 const Register = () => {
     
 
+    // react firebase hooks 
 
     const [
         createUserWithEmailAndPassword,
@@ -16,7 +17,7 @@ const Register = () => {
         error,
       ] = useCreateUserWithEmailAndPassword(auth);
 
-
+    // hadle register button
     const handleRegister = event => {
         event.preventDefault();
         const name = event.target.name.value;
@@ -26,7 +27,6 @@ const Register = () => {
         
         createUserWithEmailAndPassword(email, password);
 
-        alert('User created')
         toast('Sent email');
 
     }
@@ -60,7 +60,9 @@ const Register = () => {
                 <Link  style={{ marginLeft: '5px' }} to='/login'>Please Login</Link>
                 <br />
             </Form>
-            <ToastContainer></ToastContainer>
+
+            {/* added toast container  */}
+            <ToastContainer />
         </div>
     );
 };
